@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .water-card {
+            background-color: #007bff;
+        }
+
+        .water-card p {
+            color: #fff;
+        }
+
+        .wind-card {
+            background-color: #28a745;
+        }
+
+        .wind-card p {
+            color: #fff;
+        }
+
+        .status {
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        .bahaya{
+            background-color: red;
+        }
+        .siaga{
+            background-color: yellow;
+        }
+        .aman{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Status Data Air dan Angin</h1>
+    <!-- Kartu untuk data air -->
+    <div class="card water-card">
+        <h2>Air</h2>
+        <p>{{ .JSONData.Water }} meter</p>
+        <!-- Kartu untuk status air -->
+        <div class="status {{ .StatusWater }}">
+            <p >Status: {{ .StatusWater }}</p>
+        </div>
+    </div>
+    <!-- Kartu untuk data angin -->
+    <div class="card wind-card">
+        <h2>Angin</h2>
+        <p>{{ .JSONData.Wind }} meter per detik</p>
+        <!-- Kartu untuk status angin -->
+        <div class="status {{ .StatusWind }}">
+            <p >Status: {{ .StatusWind }}</p>
+        </div>
+    </div>
+
+    <script>
+        setInterval(function(){
+            location.reload();
+        }, 15000);
+    </script>
+</body>
+</html>
